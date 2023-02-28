@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h2>Order ID: <span data-th-text="${orderid}"></span></h2>
+<body>
+
+    <div data-th-if="${#lists.isEmpty(result)}">
+        <p>There are no orders</p>
+    </div>
+
+    <div data-th-unless="${result.empty}">
+
+        <div data-th-each="order : ${result}">
+
+            <p>Customer ID: <span data-th-text="${order.customerId}"></span></p>
+            <p>Order Date: <span data-th-text="${order.orderDate}"></span></p>
+            <p>Total Price: $ <span data-th-text="${order.totalPrice}"></span></p>
+            <p>Cost Price: $ <span data-th-text="${order.costPrice}"></span></p>
+            <p>-----------------------</p>
+
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
